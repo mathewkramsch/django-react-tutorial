@@ -6,6 +6,7 @@ from . models import *
 from rest_framework.response import Response
 from . serializer import *
 from rest_framework import status
+from rest_framework.decorators import api_view
 
 # Create your views here.
 class ReactView(APIView):
@@ -23,6 +24,7 @@ class ReactView(APIView):
 			serializer.save()
 			return Response(serializer.data)
 
+@api_view(('POST',))
 def shit(request):
 	'''
 	INPUT: [num1, num2]
@@ -33,7 +35,7 @@ def shit(request):
 			if x not in request.POST:
 				return Response(status=status.HTTP_400_BAD_REQUEST)
 		return Response(request.POST["num1"] + request.POST["num2"])
-		
+
 	else:
 		return Response(status=status.HTTP_400_BAD_REQUEST)
 

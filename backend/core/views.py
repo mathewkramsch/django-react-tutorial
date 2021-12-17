@@ -26,9 +26,27 @@ class ReactView(APIView):
 
 @api_view(('POST',))
 def shit(request):
-	'''
-	INPUT: [num1, num2]
-	'''
+	"""
+	Add up two integer numbers.
+
+	This function simply wraps the ``+`` operator.
+
+	----------
+	num1 : int
+		First number to add.
+	num2 : int
+		Second number to add.
+
+	Returns
+	-------
+	int
+		The sum of ``num1`` and ``num2``.
+
+	Examples
+	--------
+	>>> {'num1' : 5, 'num2' : 4}
+	9
+	"""
 	if request.method == "POST":
 		REQUIRED_KEYS = ["num1", "num2"]
 		for x in REQUIRED_KEYS:

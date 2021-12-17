@@ -32,9 +32,10 @@ def shit(request):
 	if request.method == "POST":
 		REQUIRED_KEYS = ["num1", "num2"]
 		for x in REQUIRED_KEYS:
-			if x not in request.POST:
+			if x not in request.data:
+				print("BAD")
 				return Response(status=status.HTTP_400_BAD_REQUEST)
-		return Response(request.POST["num1"] + request.POST["num2"])
+		return Response(request.data["num1"] + request.data["num2"])
 
 	else:
 		return Response(status=status.HTTP_400_BAD_REQUEST)

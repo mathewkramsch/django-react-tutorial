@@ -1,3 +1,5 @@
+# urls.py
+
 """backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -19,8 +21,8 @@ from django.urls import path, include
 from core.views import *
 
 urlpatterns = [
-	path('admin/', admin.site.urls),
-	path('wel/', ReactView.as_view(), name="something"),
+    path('admin/', admin.site.urls),
+    path('wel/', ReactView.as_view(), name="something"),
     path('shit/', shit, name="",)
 ]
 
